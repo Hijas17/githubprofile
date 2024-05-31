@@ -4,16 +4,17 @@ import { cookies } from "next/headers";
 export async function middleware(req: NextRequest) {
   const cookieStore = cookies();
   const userCookie = cookieStore.get("user");
-  let user = null;
+  const user = userCookie ? JSON.parse(userCookie.value) : null;
 
-  if (userCookie) {
-    user = JSON.parse(userCookie.value);
-  }
-
-  // Exclude the paths related to auth and public assets
   const { pathname } = req.nextUrl;
-  if (pathname.startsWith("/auth") || pathname.startsWith("/api/auth") || pathname.startsWith("/_next") ||
-  pathname.includes(".")) {
+
+  // Paths to exclude from the middleware
+  const excludedPaths = ["/auth", "/api/auth", "/_next", ".", "/favicon.ico"];
+
+  // Check if the request pathname matches any of the excluded paths
+  const isExcludedPath = excludedPaths.some(path => pathname.startsWith(path) || pathname.includes(path));
+
+  if (isExcludedPath) {
     if (user && pathname === "/auth/login") {
       return NextResponse.redirect(new URL("/", req.url));
     }
