@@ -1,19 +1,6 @@
-import { useGitHubData } from "@/hooks/usegithubdata";
-import {
-  Dribbble,
-  Github,
-  Globe,
-  Kanban,
-  Linkedin,
-  Mail,
-  Twitter,
-} from "lucide-react";
+import { Github, Kanban, Mail } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-
-interface ProfileProps {
-  token: string;
-}
 
 const Profile = ({ user }: any) => {
   return (
@@ -54,7 +41,11 @@ const Profile = ({ user }: any) => {
           <span className="p-0.5"> Email</span>
         </Link>
       </div>
-      <form action="/api/auth/logout" method="POST" className="flex justify-center mt-6 space-x-4">
+      <form
+        action="/api/auth/logout"
+        method="POST"
+        className="flex justify-center mt-6 space-x-4"
+      >
         <button className="px-4 py-2 bg-red-900 opacity-80 hover:opacity-100 text-white rounded-sm">
           Log Out
         </button>

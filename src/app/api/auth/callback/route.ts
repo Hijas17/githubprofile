@@ -1,9 +1,9 @@
-import { NextRequest, NextResponse } from 'next/server';
-import axios from 'axios';
+import { NextRequest, NextResponse } from "next/server";
+import axios from "axios";
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
-  const code = searchParams.get('code') as string;
+  const code = searchParams.get("code") as string;
   const clientId = process.env.GITHUB_CLIENT_ID;
   const clientSecret = process.env.GITHUB_CLIENT_SECRET;
 
@@ -17,31 +17,26 @@ export async function GET(req: NextRequest) {
       },
       {
         headers: {
-          Accept: 'application/json',
+          Accept: "application/json",
         },
       }
     );
 
     const accessToken = tokenResponse.data.access_token;
-    // const userResponse = await axios.get('https://api.github.com/user', {
-    //   headers: {
-    //     Authorization: `token ${accessToken}`,
-    //   },
-    // });
+    const redirectUrl = new URL("/", req.url);
 
-    // const user = userResponse.data;
-    // const cookieValue = JSON.stringify(user);
-
-    // Construct absolute URL for redirect
-    const redirectUrl = new URL('/', req.url);
-
-    // Set the cookie and redirect
     const response = NextResponse.redirect(redirectUrl.toString());
-    response.cookies.set('accessToken', accessToken, { httpOnly: true, path: '/' });
+    response.cookies.set("accessToken", accessToken, {
+      httpOnly: true,
+      path: "/",
+    });
 
     return response;
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ error: 'Authentication failed' }, { status: 500 });
+    return NextResponse.json(
+      { error: "Authentication failed" },
+      { status: 500 }
+    );
   }
 }

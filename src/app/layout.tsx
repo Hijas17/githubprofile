@@ -29,7 +29,9 @@ export default function RootLayout({
           <div className="w-screen h-screen">
             <NavBar />
             <Providers>
-              <main className="bg-[#0d3c3b81] w-screen h-screen">{children}</main>
+              <main className="bg-[#0d3c3b81] w-screen h-screen">
+                {children}
+              </main>
             </Providers>
           </div>
         </ThemeProvider>
