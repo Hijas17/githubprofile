@@ -1,4 +1,7 @@
+import Profile from "@/components/Profile";
+import { Kanban, Github, Mail } from "lucide-react";
 import { cookies } from "next/headers";
+import Link from "next/link";
 import React from "react";
 
 const page = () => {
@@ -11,22 +14,9 @@ const page = () => {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="flex flex-col items-center justify-center p-8 bg-white shadow-lg rounded-md">
-          <img
-            src={user.avatar_url}
-            alt="Avatar"
-            className="w-24 h-24 rounded-full"
-          />
-          <h1 className="mt-4 text-xl font-semibold">{user.name}</h1>
-          <form action="/api/auth/logout" method="POST">
-            <button
-              type="submit"
-              className="px-4 py-2 mt-4 text-white bg-red-500 rounded"
-            >
-              Logout
-            </button>
-          </form>
+    <div className="w-screen h-screen">
+      <div className="p-10">
+      <Profile user={user}></Profile>
       </div>
     </div>
   );

@@ -1,51 +1,64 @@
-import { useGitHubData } from '@/hooks/usegithubdata';
-import React from 'react';
+import { useGitHubData } from "@/hooks/usegithubdata";
+import {
+  Dribbble,
+  Github,
+  Globe,
+  Kanban,
+  Linkedin,
+  Mail,
+  Twitter,
+} from "lucide-react";
+import Link from "next/link";
+import React from "react";
 
 interface ProfileProps {
   token: string;
 }
 
-const Profile: React.FC<ProfileProps> = ({ token }) => {
-//   const { data, isLoading, error } = useGitHubData(token);
-
-//   if (isLoading) return <div>Loading...</div>;
-//   if (error) return <div>Error loading data</div>;
-
-//   if (!data) {
-//     return <div>No data available</div>;
-//   }
-
-//   const { user, repos, followers, following } = data;
-
+const Profile = ({ user }: any) => {
   return (
-    <div className="p-6 max-w-sm mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-md space-y-4">
-      {/* <ThemeSwitcher /> */}
-      {/* <img className="h-24 w-24 rounded-full mx-auto" src={user.avatar_url} alt={user.name} /> */}
-      <div className="text-center space-y-2">
-        <div className="space-y-0.5">
-          {/* <div className="text-lg leading-6 font-medium text-black dark:text-white">{user.name}</div>
-          <div className="text-lg leading-6 font-medium text-black dark:text-white">{user.email}</div> */}
-                    <div className="text-lg leading-6 font-medium text-black dark:text-white">Git</div>
-          <div className="text-lg leading-6 font-medium text-black dark:text-white">hello123@github.com</div>
-        </div>
-        <div className="flex justify-between items-center">
-          <div className="text-center">
-            {/* <div className="text-lg leading-6 font-medium text-black dark:text-white">{followers.length}</div> */}
-            <div className="text-lg leading-6 font-medium text-black dark:text-white">121</div>
-            <div className="text-sm leading-5 text-gray-500 dark:text-gray-400">Followers</div>
-          </div>
-          <div className="text-center">
-            {/* <div className="text-lg leading-6 font-medium text-black dark:text-white">{following.length}</div> */}
-            <div className="text-lg leading-6 font-medium text-black dark:text-white">2</div>
-            <div className="text-sm leading-5 text-gray-500 dark:text-gray-400">Following</div>
-          </div>
-          <div className="text-center">
-            {/* <div className="text-lg leading-6 font-medium text-black dark:text-white">{repos.length}</div> */}
-            <div className="text-lg leading-6 font-medium text-black dark:text-white">5</div>
-            <div className="text-sm leading-5 text-gray-500 dark:text-gray-400">Repositories</div>
-          </div>
+    <div className="max-w-md h-auto mx-auto p-6 bg-[#0b323133] dark:bg-[#0b323133] rounded-lg shadow-lg text-center">
+      <div className="flex justify-center">
+        <div className="w-48 h-48">
+          <img className="rounded-full" src={user.avatar_url} alt={user.name} />
         </div>
       </div>
+      <h1 className="mt-4 text-xl font-semibold">{user.name}</h1>
+      <h2 className="mt-2 text-sm text-gray-600">{user.email}</h2>
+      <form action={user.html_url}>
+        <button className="mt-4 px-4 py-2 bg-blue-900 opacity-80 hover:opacity-100 text-white rounded-full">
+          Visit Page
+        </button>
+      </form>
+      <div className="flex justify-around mt-4 text-sm text-gray-600">
+        <span>{`${user.followers} Followers`}</span>
+        <span>{`${user.following} Following`}</span>
+        <span>{`${
+          user.public_repos + user.owned_private_repos
+        } Repositories`}</span>
+      </div>
+      <div className="relative flex justify-around mt-4 text-gray-700">
+        <Link
+          href={`${user.html_url}?tab=projects`}
+          className="hover:text-green-500 flex"
+        >
+          <Kanban />
+          <span>Projects</span>
+        </Link>
+        <Link href="#" className="hover:text-blue-700 flex">
+          <Github />
+          <span>Repo</span>
+        </Link>
+        <Link href={`mailto:${user.email}`} className="hover:text-red-800 flex">
+          <Mail />
+          <span> Email</span>
+        </Link>
+      </div>
+      <form action="/api/auth/logout" method="POST" className="flex justify-center mt-6 space-x-4">
+        <button className="px-4 py-2 bg-red-900 opacity-80 hover:opacity-100 text-white rounded-sm">
+          Log Out
+        </button>
+      </form>
     </div>
   );
 };

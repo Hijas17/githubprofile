@@ -25,9 +25,9 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-        <div>
+        <div className="w-screen h-screen">
           <NavBar />
-          <main>{children}</main>
+          <main className="bg-[#0d3c3b81]">{children}</main>
         </div>
         </ThemeProvider>
       </body>
