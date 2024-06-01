@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { NavBar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
+import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,16 +20,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-      <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-        <div className="w-screen h-screen">
-          <NavBar />
-          <main className="bg-[#0d3c3b81]">{children}</main>
-        </div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="w-screen h-screen">
+            <NavBar />
+            <Providers>
+              <main className="bg-[#0d3c3b81] w-screen h-screen">{children}</main>
+            </Providers>
+          </div>
         </ThemeProvider>
       </body>
     </html>

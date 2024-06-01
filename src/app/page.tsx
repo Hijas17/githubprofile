@@ -1,29 +1,18 @@
-import Profile from "@/components/Profile";
-import { Github } from "lucide-react";
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 import React from "react";
+import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
+import GitHubData from "@/components/GitHubData";
+import { fetchGithub } from "@/server/action/fetchgithub";
 
 export default async function Home() {
-  const cookieStore = cookies();
-  const userCookie = cookieStore.get("user");
-  let user = null;
-
-  if (userCookie) {
-    user = JSON.parse(userCookie.value);
-  }
-
-  console.log(user);
+  const queryClient = new QueryClient()
+  await queryClient.prefetchQuery({
+    queryKey: ["user"],
+    queryFn: fetchGithub,
+  });
 
   return (
-    <>
-      {user && (
-        <div className="w-screen h-screen">
-          <div className="p-10">
-            <Profile user={user}></Profile>
-          </div>
-        </div>
-      )}
-    </>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <GitHubData />
+    </HydrationBoundary>
   );
 }

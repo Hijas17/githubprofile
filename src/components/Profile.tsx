@@ -51,7 +51,7 @@ const Profile = ({ user }: any) => {
         </Link>
         <Link href={`mailto:${user.email}`} className="hover:text-red-800 flex">
           <Mail />
-          <span> Email</span>
+          <span className="p-0.5"> Email</span>
         </Link>
       </div>
       <form action="/api/auth/logout" method="POST" className="flex justify-center mt-6 space-x-4">

@@ -23,21 +23,21 @@ export async function GET(req: NextRequest) {
     );
 
     const accessToken = tokenResponse.data.access_token;
-    const userResponse = await axios.get('https://api.github.com/user', {
-      headers: {
-        Authorization: `token ${accessToken}`,
-      },
-    });
+    // const userResponse = await axios.get('https://api.github.com/user', {
+    //   headers: {
+    //     Authorization: `token ${accessToken}`,
+    //   },
+    // });
 
-    const user = userResponse.data;
-    const cookieValue = JSON.stringify(user);
+    // const user = userResponse.data;
+    // const cookieValue = JSON.stringify(user);
 
     // Construct absolute URL for redirect
     const redirectUrl = new URL('/', req.url);
 
     // Set the cookie and redirect
     const response = NextResponse.redirect(redirectUrl.toString());
-    response.cookies.set('user', cookieValue, { httpOnly: true, path: '/' });
+    response.cookies.set('accessToken', accessToken, { httpOnly: true, path: '/' });
 
     return response;
   } catch (error) {

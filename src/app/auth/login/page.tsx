@@ -9,10 +9,10 @@ const page = () => {
       <div className="flex flex-col items-center justify-center p-8 bg-[#0b323133] dark:bg-[#0b323133] shadow-lg rounded-md">
           <>
           <div className="flex justify-center">
-          <div className=" bg-[#0b32318a] z-10 shadow-xl dark:bg-[#0b3231] rounded-full w-[5vw] h-[10vh]">
-          </div>
-          <div className="z-30 absolute p-1">
+          <div className=" bg-[#0b32318a]  shadow-xl dark:bg-[#0b3231] rounded-full">
+          <div className="p-1.5">
           <GithubIcon className="mt-1" size={75}></GithubIcon>
+          </div>
           </div>
           </div>
             <form action="/api/auth/login" method="GET">
