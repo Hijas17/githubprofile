@@ -10,8 +10,8 @@ const Profile = ({ user }: any) => {
           <img className="rounded-full" src={user.avatar_url} alt={user.name} />
         </div>
       </div>
-      <h1 className="mt-4 text-xl font-semibold">{user.name}</h1>
-      <h2 className="mt-2 text-sm text-gray-600">{user.email}</h2>
+      <h1 className="mt-4 text-xl font-semibold">{user.name?user.name:user.login}</h1>
+      <h2 className="mt-2 text-sm text-gray-600">{user.email?user.email:"Email not provided. Please visit your profile by clicking below."}</h2>
       <form action={user.html_url}>
         <button className="mt-4 px-4 py-2 bg-blue-900 opacity-80 hover:opacity-100 text-white rounded-full">
           Visit Page

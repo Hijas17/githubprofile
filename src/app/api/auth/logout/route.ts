@@ -5,7 +5,7 @@ export async function POST(req: NextRequest) {
   const response = NextResponse.redirect(redirectUrl.toString());
   response.cookies.set("accessToken", "", {
     httpOnly: true,
-    path: "/",
+    // path: "/",
     expires: new Date(0),
   });
 
