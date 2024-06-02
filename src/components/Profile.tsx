@@ -32,7 +32,7 @@ const Profile = ({ user }: any) => {
           <Kanban />
           <span>Projects</span>
         </Link>
-        <Link href="#" className="hover:text-blue-700 flex">
+        <Link href={`${user.html_url}?tab=repositories`} className="hover:text-blue-700 flex">
           <Github />
           <span>Repo</span>
         </Link>
