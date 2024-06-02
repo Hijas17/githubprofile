@@ -17,7 +17,7 @@ const page = () => {
           <form action="/api/auth/login" method="GET">
             <button
               type="submit"
-              className="px-4 py-2 mt-4 text-white bg-blue-800 rounded"
+              className="px-4 py-2 mt-4 text-white bg-blue-900 dark:bg-blue-900 hover:bg-blue-800 dark:hover:bg-blue-800 rounded"
             >
               Login with GitHub
             </button>
