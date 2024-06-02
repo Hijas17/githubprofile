@@ -11,7 +11,7 @@ export async function middleware(req: NextRequest) {
   const excludedPaths = ["/auth", "/api/auth", "/_next", ".", "/favicon.ico"];
 
   const isExcludedPath = excludedPaths.some(
-    (path) => pathname.startsWith(path) || pathname.includes(path)
+    (path) => pathname.includes(path)
   );
 
   if (isExcludedPath) {

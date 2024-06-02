@@ -14,7 +14,7 @@ const page = () => {
               </div>
             </div>
           </div>
-          <form action="/api/auth/login" method="GET">
+          <form action="/api/auth/login" method="POST">
             <button
               type="submit"
               className="px-4 py-2 mt-4 text-white bg-blue-800 rounded"

@@ -40,7 +40,7 @@ export const NavBar = () => {
                     </Button>
                   </form>
                 ) : (
-                  <form action="/api/auth/login" method="GET">
+                  <form action="/api/auth/login" method="POST">
                     <Button
                       className="text-black dark:text-white hover:bg-slate-100 dark:hover:bg-zinc-800"
                       type="submit"
