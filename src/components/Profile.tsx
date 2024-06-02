@@ -11,7 +11,7 @@ const Profile = ({ user }: any) => {
         </div>
       </div>
       <h1 className="mt-4 text-xl font-semibold">{user.name?user.name:user.login}</h1>
-      <h2 className="mt-2 text-sm text-[rgb(110,127,153)] text-[rgb(75,87,107) dark:text-[rgb(110,127,153)]">{user.email?user.email:"Email not provided or set to private. Please check your profile."}</h2>
+      <h2 className="mt-2 text-sm text-[rgb(60,69,83)] dark:text-[rgb(123,145,175)]">{user.email?user.email:"Email not provided or set to private. Please check your profile."}</h2>
       <form action={user.html_url}>
         <button className="mt-4 px-4 py-2 bg-blue-900 opacity-80 hover:opacity-100 text-white rounded-full">
           View Full Profile
