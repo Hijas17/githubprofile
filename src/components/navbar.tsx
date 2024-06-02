@@ -14,7 +14,7 @@ import { GithubIcon } from "lucide-react";
 export const NavBar = () => {
   const pathname = usePathname();
   return (
-    <div className="flex w-full h-14 shadow-xl bg-[#0b323133] dark:bg-[#0b323136]">
+    <div className="flex w-full h-14 shadow-lg bg-[#0b323133] dark:bg-[#0b323136]">
       <Link href="/" className="w-full h-full flex justify-start pl-2">
         <GithubIcon className="mt-1" size={50}></GithubIcon>{" "}
         <div className="flex items-center subpixel-antialiased font-black underline underline-offset-4 decoration-double text-2xl">

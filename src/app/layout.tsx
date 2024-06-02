@@ -29,7 +29,7 @@ export default function RootLayout({
           <div className="w-screen h-screen">
             <NavBar />
             <Providers>
-              <main className="bg-[#0d3c3b81] w-screen h-screen">
+              <main className="bg-[#E7E7E2] dark:bg-[#0d3c3b48]  w-screen h-screen">
                 {children}
               </main>
             </Providers>
