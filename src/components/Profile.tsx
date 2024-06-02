@@ -43,7 +43,7 @@ const Profile = ({ user }: any) => {
       </div>
       <form
         action="/api/auth/logout"
-        method="POST"
+        method="GET"
         className="flex justify-center mt-6 space-x-4"
       >
         <button className="px-4 py-2 bg-red-900 opacity-80 hover:opacity-100 text-white rounded-sm">

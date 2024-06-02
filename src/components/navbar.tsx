@@ -30,7 +30,7 @@ export const NavBar = () => {
             <NavigationMenuItem>
               <NavigationMenuLink>
                 {pathname !== "/auth/login" ? (
-                  <form action="/api/auth/logout" method="POST">
+                  <form action="/api/auth/logout" method="GET">
                     <Button
                       className="text-black dark:text-white hover:bg-slate-100 dark:hover:bg-zinc-800"
                       type="submit"
