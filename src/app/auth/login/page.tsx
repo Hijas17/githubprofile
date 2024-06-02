@@ -4,8 +4,8 @@ import { GithubIcon } from "lucide-react";
 
 const page = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#0b323133] dark:bg-[#0b323133]">
-      <div className="flex flex-col items-center justify-center p-8 bg-[#0b323133] dark:bg-[#0b323133] shadow-lg rounded-md">
+    <div className="flex items-center justify-center min-h-screen bg-[#ffffff] dark:bg-[#0b323133]">
+      <div className="flex flex-col items-center justify-center p-8 bg-[#ffffff] dark:bg-[#0b323133] shadow-lg rounded-md">
         <>
           <div className="flex justify-center">
             <div className=" bg-[#0b32318a]  shadow-xl dark:bg-[#0b3231] rounded-full">
