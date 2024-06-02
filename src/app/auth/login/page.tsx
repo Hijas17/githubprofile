@@ -8,7 +8,7 @@ const page = () => {
       <div className="flex flex-col items-center justify-center p-8 bg-[#ffffff] dark:bg-[#0b323133] shadow-lg rounded-md">
         <>
           <div className="flex justify-center">
-            <div className=" bg-[#0b32318a]  shadow-xl dark:bg-[#0b3231] rounded-full">
+            <div className=" bg-[#0b323133] dark:bg-[#0b323136]  shadow-xl rounded-full">
               <div className="p-1.5">
                 <GithubIcon className="mt-1" size={75}></GithubIcon>
               </div>
